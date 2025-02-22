@@ -27,8 +27,6 @@ namespace AnimalProject
 
 
             } while (string.IsNullOrEmpty(dogbreed) || string.IsNullOrEmpty(dogname));
-
-
             return (dogbreed, dogname);
             //This returns a tuple with two values.
         }
