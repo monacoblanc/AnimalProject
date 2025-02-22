@@ -29,6 +29,7 @@
             //Dog.DogCount is a static variable. It is shared among all instances of a class. This dogCount can only be accessed by the Dog class and not by the instance of the class.
             //This is also a property. It is used to get the value of the dogCount variable not as a method or function.
 
+            //How it works is that the user is prompted to enter the dog breed and dog name they want. If the user enters an empty field, an error message will be displayed and the user will be prompted to enter the dog breed and dog name again.
 
         }
     }
