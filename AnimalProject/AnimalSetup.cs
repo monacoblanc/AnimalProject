@@ -6,13 +6,47 @@ using System.Threading.Tasks;
 
 namespace AnimalProject
 {
-    class Animals {
+    public static class ConsoleInput
+    {
+        public static (string breed, string name) GetDogInput() {
+            //This syntax used a tuple to return multiple values from a method. The method returns a tuple with two values.
+            //When to use a tuple: When you want to return multiple values from a method.
+
+            string dogbreed = "";
+            string dogname = "";
+
+            do {
+                Console.WriteLine("Enter the Dog breed you want: ");
+                dogbreed = Console.ReadLine()?.Trim() ?? string.Empty;
+                Console.WriteLine("Enter the Dog name you want: ");
+                dogname = Console.ReadLine()?.Trim() ?? string.Empty;
+
+                if (string.IsNullOrEmpty(dogbreed) || string.IsNullOrEmpty(dogname)) {
+                    DisplayEmptyFieldError();
+                }
+
+
+            } while (string.IsNullOrEmpty(dogbreed) || string.IsNullOrEmpty(dogname));
+
+
+            return (dogbreed, dogname);
+            //This returns a tuple with two values.
+        }
+
+        private static void DisplayEmptyFieldError() {
+            Console.WriteLine("Error: there is an empty field. Please ensure all fields contain information.");
+        }
+    }
+
+
+
+    public class Animals {
         public void Animaleat () {
             Console.WriteLine("This animal is eating.");
         }
     }
 
-    class Dog : Animals
+    public class Dog : Animals
     { //This is inheritance. Dog class is inheriting from Animals class.
         public string Breed { get; set; } //Getters and setters are used to access and update the properties of a class.
         public string DogName { get; set; }
@@ -37,4 +71,11 @@ namespace AnimalProject
 
 
     }
+
+
+
+
+
+
+
 }

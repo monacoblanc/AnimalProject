@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalProject", "AnimalProject\AnimalProject.csproj", "{820BD288-B154-4D59-B083-FB201C87A471}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C5889DA7-5997-4C5C-84C4-B4FD0ED948EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalProject_Test", "AnimalProject_Test\AnimalProject_Test.csproj", "{D535CC16-282B-4029-AD24-07219D8DA0D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +19,15 @@ Global
 		{820BD288-B154-4D59-B083-FB201C87A471}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{820BD288-B154-4D59-B083-FB201C87A471}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{820BD288-B154-4D59-B083-FB201C87A471}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D535CC16-282B-4029-AD24-07219D8DA0D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D535CC16-282B-4029-AD24-07219D8DA0D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D535CC16-282B-4029-AD24-07219D8DA0D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D535CC16-282B-4029-AD24-07219D8DA0D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2118BDD-AF80-4B94-81C8-5207AAAA697F}
 	EndGlobalSection
 EndGlobal
