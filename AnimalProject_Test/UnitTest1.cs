@@ -30,7 +30,7 @@ namespace AnimalProject_Test
         public void GetDogInput_ReturnsTrimmedInput()
         {
             // Arrange
-            string breedInput = " Labrador";
+            string breedInput = " lAbrador";
             string nameInput = "ER";
             string CombinedInput = $"{breedInput}\n{nameInput}\n";
 
@@ -47,7 +47,7 @@ namespace AnimalProject_Test
             // Assert is where you verify that the method you called in the Act step did what you expected it to do.
             Assert.Equal("Labrador", breed);
             //Assert.Equal(expected, actual);
-            Assert.Equal("pitbull", name);
+            Assert.Equal("ER", name);
         }
         /*
          Arrange is telling us that if we provide this input, and I call this method (Act), then

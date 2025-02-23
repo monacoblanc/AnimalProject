@@ -17,10 +17,8 @@ namespace AnimalProject
             string dogname = "";
 
             do {
-                Console.WriteLine("Enter the Dog breed you want: ");
-                dogbreed = Console.ReadLine()?.Trim() ?? string.Empty;
-                Console.WriteLine("Enter the Dog name you want: ");
-                dogname = Console.ReadLine()?.Trim() ?? string.Empty;
+                dogbreed = GetInput("Enter the Dog breed you want: ");
+                dogname = GetInput("Enter the Dog name you want: ");
 
                 if (string.IsNullOrEmpty(dogbreed) || string.IsNullOrEmpty(dogname)) {
                     DisplayEmptyFieldError();
@@ -30,6 +28,11 @@ namespace AnimalProject
             } while (string.IsNullOrEmpty(dogbreed) || string.IsNullOrEmpty(dogname));
             return (dogbreed, dogname);
             //This returns a tuple with two values.
+        }
+
+        private static string GetInput(string prompt) {
+            Console.WriteLine(prompt);
+            return Console.ReadLine()?.Trim() ?? string.Empty;
         }
 
         private static void DisplayEmptyFieldError() {
