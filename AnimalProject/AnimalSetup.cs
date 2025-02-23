@@ -20,7 +20,7 @@ namespace AnimalProject
                 dogbreed = GetInput("Enter the Dog breed you want: ");
                 dogname = GetInput("Enter the Dog name you want: ");
 
-                if (string.IsNullOrEmpty(dogbreed) || string.IsNullOrEmpty(dogname)) {
+                if (IsEmptyInput(dogbreed, dogname)) {
                     DisplayEmptyFieldError();
                 }
 
@@ -34,6 +34,11 @@ namespace AnimalProject
             Console.WriteLine(prompt);
             return Console.ReadLine()?.Trim() ?? string.Empty;
         }
+
+        private static bool IsEmptyInput(string breed, string dogname) {
+            return string.IsNullOrEmpty(breed) || string.IsNullOrEmpty(dogname);
+        }
+
 
         private static void DisplayEmptyFieldError() {
             Console.WriteLine("Error: there is an empty field. Please ensure all fields contain information.");
