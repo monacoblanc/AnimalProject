@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace AnimalProject
 {
-    public static class ConsoleInput
-    {
-        public static (string breed, string name) GetDogInput() {
+    internal static class ConsoleInput {//I/O operations are performed in this class.
+        internal static (string breed, string name) GetDogInput() {
             //This syntax used a tuple to return multiple values from a method. The method returns a tuple with two values.
             //When to use a tuple: When you want to return multiple values from a method.
 
@@ -17,11 +16,11 @@ namespace AnimalProject
             string dogname = "";
 
             do {
-                dogbreed = GetInput("Enter the Dog breed you want: ");
-                dogname = GetInput("Enter the Dog name you want: ");
+                dogbreed = InputHelper.GetInput("Enter the Dog breed you want: ");
+                dogname = InputHelper.GetInput("Enter the Dog name you want: ");
 
-                if (IsEmptyInput(dogbreed, dogname)) {
-                    DisplayEmptyFieldError();
+                if (InputHelper.IsEmptyInput(dogbreed, dogname)) {
+                    InputHelper.DisplayEmptyField_and_type_Error();
                 }
 
 
@@ -29,24 +28,57 @@ namespace AnimalProject
             return (dogbreed, dogname);
             //This returns a tuple with two values.
         }
+    
+        internal static int GetAnimalCount (string AnimalType) {
 
-        private static string GetInput(string prompt) {
-            Console.WriteLine(prompt);
-            return Console.ReadLine()?.Trim() ?? string.Empty;
+            int AnimalCount = 0;
+            string AnimalRequested;
+
+            while (true) {
+                AnimalRequested = InputHelper.GetInput($"How many {AnimalType}s do you want to adopt? ");
+                if (int.TryParse(AnimalRequested, out AnimalCount)) {
+                    break;
+                }
+
+                else {
+                    InputHelper.DisplayEmptyField_and_type_Error();
+                }
+            }
+            return AnimalCount;
+
         }
-
-        private static bool IsEmptyInput(string breed, string dogname) {
-            return string.IsNullOrEmpty(breed) || string.IsNullOrEmpty(dogname);
-        }
+    
+    }
 
 
-        private static void DisplayEmptyFieldError() {
-            Console.WriteLine("Error: there is an empty field. Please ensure all fields contain information.");
+    public static class ObjectCreation {
+        public static void CreateDogObject() {
+
+            do {
+
+                int dogCount = ConsoleInput.GetAnimalCount("Dog");
+
+                
+                for (int i = 0; i < dogCount; i++) {
+
+                    (string breed, string name) = ConsoleInput.GetDogInput();
+                    Dog dog = new(breed, name);
+
+
+                    Console.WriteLine($"You have created a {dog.Breed} dog named {dog.DogName}.");
+                    Console.WriteLine($"You have created {Dog.DogCount} dog(s).");
+                    dogCount++;
+                }
+                    break;
+                
+
+            } while (false);
         }
     }
 
 
 
+    //Object Declaration
     public class Animals {
         public void Animaleat () {
             Console.WriteLine("This animal is eating.");
@@ -76,13 +108,31 @@ namespace AnimalProject
         }
 
 
-
     }
 
 
 
+    //Additional Security Protocol
+    internal static class InputHelper
+    {
+        internal static string GetInput(string prompt) {
+            //internal is used to make the method accessible to the entire assembly but not to other assemblies.
+            Console.WriteLine(prompt);
+            return Console.ReadLine()?.Trim() ?? string.Empty;
+        }
+
+        internal static bool IsEmptyInput(string breed, string dogname) {
+            return string.IsNullOrEmpty(breed) || string.IsNullOrEmpty(dogname);
+        }
+
+        internal static void DisplayEmptyField_and_type_Error() {
+            Console.WriteLine("Error: There is an empty field or invalid Input. Please ensure all fields contain information and correct.");
+        }
 
 
 
+    }
 
 }
+
+
